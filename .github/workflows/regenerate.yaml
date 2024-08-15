@@ -1,0 +1,48 @@
+name: Regenerate
+on:
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    - cron: '0 0 * * 0' # runs weekly on Sunday at 00:00
+
+jobs:
+  update-generated-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+
+      - name: Setup git
+        shell: bash
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate firefox files
+        shell: bash
+        run: |
+          nix run .#betterfox-generator firefox
+          if [ ! -z $(git ls-files --others) ] || ! (git diff-index --quiet HEAD --); then git commit . -m "Re-extract firefox jsons"; fi
+
+      - name: Generate librewolf files
+        shell: bash
+        run: |
+          nix run .#betterfox-generator librewolf
+          if [ ! -z $(git ls-files --others) ] || ! (git diff-index --quiet HEAD --); then git commit . -m "Re-extract librewolf jsons"; fi
+
+      - name: Generate smoothfox files
+        shell: bash
+        run: |
+          nix run .#betterfox-generator smoothfox
+          if [ ! -z $(git ls-files --others) ] || ! (git diff-index --quiet HEAD --); then git commit . -m "Re-extract smoothfox jsons"; fi
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: update_action
+          delete-branch: true
+          committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          title: Update generated files
