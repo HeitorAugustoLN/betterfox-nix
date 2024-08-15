@@ -16,7 +16,7 @@
         };
         value = lib.mkOption {
           type = lib.types.anything;
-          default = setting.enabled;
+          default = setting.value;
           description = "The value of the ${setting.name} setting";
         };
         flat = lib.mkOption {
