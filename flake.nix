@@ -19,6 +19,23 @@
     ];
     forAllSystems = function: nixpkgs.lib.genAttrs supportedSystems (system: function nixpkgs.legacyPackages.${system});
   in {
+    devShells = forAllSystems (pkgs: {
+      default = pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [
+          ruff
+          (python3.withPackages (pyPkgs:
+            with pyPkgs; [
+              python-lsp-ruff
+              python-lsp-server
+            ]))
+        ];
+      };
+    });
+
     formatter = forAllSystems (pkgs: pkgs.alejandra);
+
+    packages = forAllSystems (pkgs: {
+      extractor = pkgs.callPackage ./extractor {};
+    });
   };
 }
