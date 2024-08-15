@@ -9,22 +9,27 @@
       },
       "settings": [
         {
+          "enabled": true,
           "name": "apz.overscroll.enabled",
           "value": true
         },
         {
+          "enabled": true,
           "name": "mousewheel.min_line_scroll_amount",
           "value": 10
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.mouseWheel.durationMinMS",
           "value": 80
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.currentVelocityWeighting",
           "value": "0.15"
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.stopDecelerationWeighting",
           "value": "0.6"
         }
@@ -41,14 +46,17 @@
       },
       "settings": [
         {
+          "enabled": true,
           "name": "apz.overscroll.enabled",
           "value": true
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll",
           "value": true
         },
         {
+          "enabled": true,
           "name": "mousewheel.default.delta_multiplier_y",
           "value": 275
         }
@@ -65,18 +73,22 @@
       },
       "settings": [
         {
+          "enabled": true,
           "name": "apz.overscroll.enabled",
           "value": true
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll",
           "value": true
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.enabled",
           "value": true
         },
         {
+          "enabled": true,
           "name": "mousewheel.default.delta_multiplier_y",
           "value": 300
         }
@@ -93,50 +105,62 @@
       },
       "settings": [
         {
+          "enabled": true,
           "name": "apz.overscroll.enabled",
           "value": true
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll",
           "value": true
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS",
           "value": 12
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.enabled",
           "value": true
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.motionBeginSpringConstant",
           "value": 600
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.regularSpringConstant",
           "value": 650
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.slowdownMinDeltaMS",
           "value": 25
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio",
           "value": 2.0
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.msdPhysics.slowdownSpringConstant",
           "value": 250
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.currentVelocityWeighting",
           "value": 1.0
         },
         {
+          "enabled": true,
           "name": "general.smoothScroll.stopDecelerationWeighting",
           "value": 1.0
         },
         {
+          "enabled": true,
           "name": "mousewheel.default.delta_multiplier_y",
           "value": 300
         }
