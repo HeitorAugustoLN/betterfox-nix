@@ -1,4 +1,5 @@
 {
+  "main" = builtins.fromJSON (builtins.readFile ./main.json);
   "128.0" = builtins.fromJSON (builtins.readFile ./128.0.json);
   "126.0" = builtins.fromJSON (builtins.readFile ./126.0.json);
   "122.1" = builtins.fromJSON (builtins.readFile ./122.1.json);
