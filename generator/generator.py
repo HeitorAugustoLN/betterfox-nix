@@ -23,7 +23,7 @@ class Generator:
 
     def generate_versions(self, default_nix: TextIO):
         for version in self.versions:
-            print(f"Generating {self.generation_type} v{version}")
+            print(f"Generating {self.generation_type} {version}")
             url = self.generate_url(version)
             response = requests.get(url)
             if response.status_code == 200:
