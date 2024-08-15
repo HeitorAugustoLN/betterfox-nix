@@ -79,18 +79,20 @@ class Extractor:
 
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         raise ValueError(
-            f"betterfox-extractor must receive 1 argument, got: {len(sys.argv) - 1}"
+            f"betterfox-extractor must receive 2 arguments, got: {len(sys.argv) - 1}"
         )
 
     extractType = sys.argv[1]
+    filePath = sys.argv[2]
+
     if extractType == "librewolf":
         section = r"SECTION:\s*(\w+)"
         subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
         pref = r'defaultPref\("([^"]+)",\s*(.*?)\);'
 
-        librewolf = Extractor(section, subsection, pref, "librewolf.overrides.cfg")
+        librewolf = Extractor(section, subsection, pref, filePath)
         sections = librewolf.extract()
         json_output = json.dumps(sections, indent=2)
         print(json_output)
@@ -99,7 +101,7 @@ def main():
         subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
         pref = r'user_pref\("([^"]+)",\s*(.*?)\);'
 
-        firefox = Extractor(section, subsection, pref, "user.js")
+        firefox = Extractor(section, subsection, pref, filePath)
         sections = firefox.extract()
         json_output = json.dumps(sections, indent=2)
         print(json_output)
@@ -108,7 +110,7 @@ def main():
         subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
         pref = r'user_pref\("([^"]+)",\s*(.*?)\);'
 
-        smoothfox = Extractor(section, subsection, pref, "Smoothfox.js")
+        smoothfox = Extractor(section, subsection, pref, filePath)
         sections = smoothfox.extract()
         json_output = json.dumps(sections, indent=2)
         print(json_output)
