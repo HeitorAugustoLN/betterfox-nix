@@ -59,7 +59,7 @@ def main():
         )
 
     tags = requests.get("https://api.github.com/repos/yokoffing/Betterfox/tags").json()
-    versions = [tag["name"] for tag in tags if re.match(r"^\d+\.\d+$", tag["name"])]
+    versions = ["main"] + [tag["name"] for tag in tags if re.match(r"^\d+\.\d+$", tag["name"])]
 
     generation_type = sys.argv[1]
     match generation_type:
