@@ -75,7 +75,7 @@ class Extractor:
                     pref_name, pref_value_raw = pref_match.groups()
                     pref_value = self.parse_value(pref_value_raw)
                     self.current_subsection["settings"].append(
-                        {"name": pref_name, "value": pref_value}
+                        {"enabled": True, "name": pref_name, "value": pref_value}
                     )
         return self.sections
 

@@ -35,6 +35,8 @@
 
     formatter = forAllSystems (pkgs: pkgs.alejandra);
 
+    homeManagerModules.betterfox = import ./modules;
+
     packages = forAllSystems (pkgs: let
       betterfox-extractor = pkgs.callPackage ./extractor {};
     in {
