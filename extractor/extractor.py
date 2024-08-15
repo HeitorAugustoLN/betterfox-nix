@@ -1,9 +1,11 @@
+import json
 import re
 import sys
-import json
 
 class Extractor:
-    def __init__(self, section_regex, subsection_regex, pref_regex, pref_file):
+    def __init__(
+        self, section_regex: str, subsection_regex: str, pref_regex: str, pref_file: str
+    ):
         self.section_regex = section_regex
         self.subsection_regex = subsection_regex
         self.pref_regex = pref_regex
@@ -84,40 +86,41 @@ def main():
             f"betterfox-extractor must receive 2 arguments, got: {len(sys.argv) - 1}"
         )
 
-    extractType = sys.argv[1]
-    filePath = sys.argv[2]
+    extract_type = sys.argv[1]
+    file_path = sys.argv[2]
 
-    if extractType == "librewolf":
-        section = r"SECTION:\s*(\w+)"
-        subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
-        pref = r'defaultPref\("([^"]+)",\s*(.*?)\);'
+    match extract_type:
+        case "librewolf":
+            section = r"SECTION:\s*(\w+)"
+            subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
+            pref = r'defaultPref\("([^"]+)",\s*(.*?)\);'
 
-        librewolf = Extractor(section, subsection, pref, filePath)
-        sections = librewolf.extract()
-        json_output = json.dumps(sections, indent=2)
-        print(json_output)
-    elif extractType == "firefox":
-        section = r"SECTION:\s*(\w+)"
-        subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
-        pref = r'user_pref\("([^"]+)",\s*(.*?)\);'
+            librewolf = Extractor(section, subsection, pref, file_path)
+            sections = librewolf.extract()
+            json_output = json.dumps(sections, indent=2)
+            print(json_output)
+        case "firefox":
+            section = r"SECTION:\s*(\w+)"
+            subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
+            pref = r'user_pref\("([^"]+)",\s*(.*?)\);'
 
-        firefox = Extractor(section, subsection, pref, filePath)
-        sections = firefox.extract()
-        json_output = json.dumps(sections, indent=2)
-        print(json_output)
-    elif extractType == "smoothfox":
-        section = r"OPTION:\s+(\w+(?:\s\w+)*)"
-        subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
-        pref = r'user_pref\("([^"]+)",\s*(.*?)\);'
+            firefox = Extractor(section, subsection, pref, file_path)
+            sections = firefox.extract()
+            json_output = json.dumps(sections, indent=2)
+            print(json_output)
+        case "smoothfox":
+            section = r"OPTION(?:\s\w+)?:\s+(\w+(?:\s\w+)*)"
+            subsection = r"/\*\*\s*(.+?)\s*\*\*\*/"
+            pref = r'user_pref\("([^"]+)",\s*(.*?)\);'
 
-        smoothfox = Extractor(section, subsection, pref, filePath)
-        sections = smoothfox.extract()
-        json_output = json.dumps(sections, indent=2)
-        print(json_output)
-    else:
-        raise ValueError(
-            f"{extractType} is not a valid option. Supported options are: librewolf, firefox and smoothfox."
-        )
+            smoothfox = Extractor(section, subsection, pref, file_path)
+            sections = smoothfox.extract()
+            json_output = json.dumps(sections, indent=2)
+            print(json_output)
+        case _:
+            raise ValueError(
+                f"{extract_type} is not a valid option. Supported options are: librewolf, firefox and smoothfox."
+            )
 
 
 if __name__ == "__main__":
