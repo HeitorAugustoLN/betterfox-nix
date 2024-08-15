@@ -1,0 +1,150 @@
+{
+  "sharpen-scrolling": {
+    "meta": {
+      "title": "SHARPEN SCROLLING"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "apz.overscroll.enabled",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "mousewheel.min_line_scroll_amount",
+          "value": 10
+        },
+        {
+          "name": "general.smoothScroll.mouseWheel.durationMinMS",
+          "value": 80
+        },
+        {
+          "name": "general.smoothScroll.currentVelocityWeighting",
+          "value": "0.15"
+        },
+        {
+          "name": "general.smoothScroll.stopDecelerationWeighting",
+          "value": "0.6"
+        }
+      ]
+    }
+  },
+  "instant-scrolling": {
+    "meta": {
+      "title": "INSTANT SCROLLING"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "apz.overscroll.enabled",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "mousewheel.default.delta_multiplier_y",
+          "value": 275
+        }
+      ]
+    }
+  },
+  "smooth-scrolling": {
+    "meta": {
+      "title": "SMOOTH SCROLLING"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "apz.overscroll.enabled",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.enabled",
+          "value": true
+        },
+        {
+          "name": "mousewheel.default.delta_multiplier_y",
+          "value": 300
+        }
+      ]
+    }
+  },
+  "natural-smooth-scrolling-v3": {
+    "meta": {
+      "title": "NATURAL SMOOTH SCROLLING V3"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "apz.overscroll.enabled",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS",
+          "value": 12
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.enabled",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.motionBeginSpringConstant",
+          "value": 600
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.regularSpringConstant",
+          "value": 650
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.slowdownMinDeltaMS",
+          "value": 25
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio",
+          "value": "2"
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.slowdownSpringConstant",
+          "value": 250
+        },
+        {
+          "name": "general.smoothScroll.currentVelocityWeighting",
+          "value": "1"
+        },
+        {
+          "name": "general.smoothScroll.stopDecelerationWeighting",
+          "value": "1"
+        },
+        {
+          "name": "mousewheel.default.delta_multiplier_y",
+          "value": 300
+        }
+      ]
+    }
+  }
+}

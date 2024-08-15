@@ -1,0 +1,270 @@
+{
+  "fastfox": {
+    "meta": {
+      "title": "FASTFOX"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "layout.css.grid-template-masonry-value.enabled",
+          "value": true
+        },
+        {
+          "name": "dom.enable_web_task_scheduling",
+          "value": true
+        },
+        {
+          "name": "layout.css.animation-composition.enabled",
+          "value": true
+        }
+      ]
+    }
+  },
+  "securefox": {
+    "meta": {
+      "title": "SECUREFOX"
+    },
+    "tracking-protection": {
+      "meta": {
+        "title": "tracking-protection"
+      },
+      "settings": [
+        {
+          "name": "privacy.trackingprotection.emailtracking.enabled",
+          "value": true
+        },
+        {
+          "name": "urlclassifier.trackingSkipURLs",
+          "value": "*.reddit.com, *.twitter.com, *.twimg.com"
+        },
+        {
+          "name": "urlclassifier.features.socialtracking.skipURLs",
+          "value": "*.instagram.com, *.twitter.com, *.twimg.com"
+        }
+      ]
+    },
+    "ocsp-and-certs-with-hpkp": {
+      "meta": {
+        "title": "ocsp-and-certs-with-hpkp"
+      },
+      "settings": [
+        {
+          "name": "security.OCSP.enabled",
+          "value": 0
+        },
+        {
+          "name": "security.OCSP.require",
+          "value": false
+        },
+        {
+          "name": "security.pki.crlite_mode",
+          "value": 2
+        }
+      ]
+    },
+    "rfp": {
+      "meta": {
+        "title": "rfp"
+      },
+      "settings": [
+        {
+          "name": "privacy.resistFingerprinting",
+          "value": false
+        },
+        {
+          "name": "webgl.disabled",
+          "value": false
+        },
+        {
+          "name": "media.eme.enabled",
+          "value": true
+        }
+      ]
+    },
+    "https-only-mode": {
+      "meta": {
+        "title": "https-only-mode"
+      },
+      "settings": [
+        {
+          "name": "dom.security.https_only_mode_error_page_user_suggestions",
+          "value": true
+        }
+      ]
+    },
+    "passwords-and-autofill": {
+      "meta": {
+        "title": "passwords-and-autofill"
+      },
+      "settings": [
+        {
+          "name": "signon.generation.enabled",
+          "value": false
+        }
+      ]
+    },
+    "webrtc": {
+      "meta": {
+        "title": "webrtc"
+      },
+      "settings": [
+        {
+          "name": "media.peerconnection.ice.no_host",
+          "value": false
+        }
+      ]
+    },
+    "permissions": {
+      "meta": {
+        "title": "permissions"
+      },
+      "settings": [
+        {
+          "name": "permissions.default.geo",
+          "value": 2
+        },
+        {
+          "name": "permissions.default.desktop-notification",
+          "value": 2
+        },
+        {
+          "name": "dom.push.enabled",
+          "value": false
+        }
+      ]
+    }
+  },
+  "peskyfox": {
+    "meta": {
+      "title": "PESKYFOX"
+    },
+    "mozilla-ui": {
+      "meta": {
+        "title": "mozilla-ui"
+      },
+      "settings": [
+        {
+          "name": "layout.css.prefers-color-scheme.content-override",
+          "value": 2
+        },
+        {
+          "name": "toolkit.legacyUserProfileCustomizations.stylesheets",
+          "value": true
+        },
+        {
+          "name": "browser.compactmode.show",
+          "value": true
+        },
+        {
+          "name": "findbar.highlightAll",
+          "value": true
+        }
+      ]
+    },
+    "fullscreen": {
+      "meta": {
+        "title": "fullscreen"
+      },
+      "settings": [
+        {
+          "name": "full-screen-api.transition-duration.enter",
+          "value": "0 0"
+        },
+        {
+          "name": "full-screen-api.transition-duration.leave",
+          "value": "0 0"
+        },
+        {
+          "name": "full-screen-api.warning.delay",
+          "value": 0
+        },
+        {
+          "name": "full-screen-api.warning.timeout",
+          "value": 0
+        }
+      ]
+    },
+    "url-bar": {
+      "meta": {
+        "title": "url-bar"
+      },
+      "settings": [
+        {
+          "name": "browser.urlbar.suggest.engines",
+          "value": false
+        },
+        {
+          "name": "browser.urlbar.suggest.topsites",
+          "value": false
+        },
+        {
+          "name": "browser.urlbar.suggest.calculator",
+          "value": true
+        },
+        {
+          "name": "browser.urlbar.unitConversion.enabled",
+          "value": true
+        }
+      ]
+    },
+    "autoplay": {
+      "meta": {
+        "title": "autoplay"
+      },
+      "settings": [
+        {
+          "name": "media.autoplay.blocking_policy",
+          "value": 0
+        }
+      ]
+    },
+    "downloads": {
+      "meta": {
+        "title": "downloads"
+      },
+      "settings": [
+        {
+          "name": "browser.download.autohideButton",
+          "value": true
+        }
+      ]
+    },
+    "pdf": {
+      "meta": {
+        "title": "pdf"
+      },
+      "settings": [
+        {
+          "name": "browser.download.open_pdf_attachments_inline",
+          "value": true
+        }
+      ]
+    },
+    "tab-behavior": {
+      "meta": {
+        "title": "tab-behavior"
+      },
+      "settings": [
+        {
+          "name": "browser.tabs.loadBookmarksInTabs",
+          "value": true
+        },
+        {
+          "name": "browser.bookmarks.openInTabClosesMenu",
+          "value": false
+        },
+        {
+          "name": "editor.truncate_user_pastes",
+          "value": false
+        },
+        {
+          "name": "clipboard.plainTextOnly",
+          "value": true
+        }
+      ]
+    }
+  }
+}

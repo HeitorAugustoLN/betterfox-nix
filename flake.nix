@@ -27,6 +27,7 @@
             with pyPkgs; [
               python-lsp-ruff
               python-lsp-server
+              requests
             ]))
         ];
       };
@@ -34,8 +35,13 @@
 
     formatter = forAllSystems (pkgs: pkgs.alejandra);
 
-    packages = forAllSystems (pkgs: {
-      extractor = pkgs.callPackage ./extractor {};
+    packages = forAllSystems (pkgs: let
+      betterfox-extractor = pkgs.callPackage ./extractor {};
+    in {
+      inherit betterfox-extractor;
+      betterfox-generator = pkgs.callPackage ./generator {
+        inherit betterfox-extractor;
+      };
     });
   };
 }

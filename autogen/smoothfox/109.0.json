@@ -1,0 +1,102 @@
+{
+  "instant-scrolling": {
+    "meta": {
+      "title": "INSTANT SCROLLING"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "mousewheel.default.delta_multiplier_y",
+          "value": 275
+        }
+      ]
+    }
+  },
+  "smooth-scrolling": {
+    "meta": {
+      "title": "SMOOTH SCROLLING"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "mousewheel.default.delta_multiplier_y",
+          "value": 300
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.enabled",
+          "value": true
+        }
+      ]
+    }
+  },
+  "natural-smooth-scrolling-v3": {
+    "meta": {
+      "title": "NATURAL SMOOTH SCROLLING V3"
+    },
+    "default": {
+      "meta": {
+        "title": "default"
+      },
+      "settings": [
+        {
+          "name": "general.smoothScroll",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS",
+          "value": 12
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.enabled",
+          "value": true
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.motionBeginSpringConstant",
+          "value": 600
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.regularSpringConstant",
+          "value": 650
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.slowdownMinDeltaMS",
+          "value": 25
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio",
+          "value": 2.0
+        },
+        {
+          "name": "general.smoothScroll.msdPhysics.slowdownSpringConstant",
+          "value": 250
+        },
+        {
+          "name": "general.smoothScroll.currentVelocityWeighting",
+          "value": 1.0
+        },
+        {
+          "name": "general.smoothScroll.stopDecelerationWeighting",
+          "value": 1.0
+        },
+        {
+          "name": "mousewheel.default.delta_multiplier_y",
+          "value": 300
+        }
+      ]
+    }
+  }
+}
