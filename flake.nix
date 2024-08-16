@@ -1,5 +1,5 @@
 {
-  description = "Utilities to use Betterfox user.js for Firefox and Librewolf";
+  description = "Home-manager module to integrate Betterfox user.js in Firefox and Librewolf";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

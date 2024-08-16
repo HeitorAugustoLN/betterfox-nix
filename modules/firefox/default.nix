@@ -3,27 +3,27 @@
   lib,
   ...
 }: let
-  cfg = config.programs.librewolf;
+  cfg = config.programs.firefox;
   version =
-    if (config.programs.librewolf.package != null)
-    then "${config.programs.librewolf.package.version}"
+    if (config.programs.firefox.package != null)
+    then "${config.programs.firefox.package.version}"
     else "unknown";
-  ext = (import ../autogen/librewolf).${cfg.betterfox.version};
+  ext = (import ../../autogen/firefox).${cfg.betterfox.version};
 in {
-  options.programs.librewolf = {
+  options.programs.firefox = {
     betterfox = {
       enable = lib.mkEnableOption "betterfox support in profiles";
       version = lib.mkOption {
         description = "The version of betterfox user.js used";
-        type = lib.types.enum (builtins.attrNames (import ../autogen/librewolf));
+        type = lib.types.enum (builtins.attrNames (import ../../autogen/firefox));
         default = "main";
       };
     };
-    settings = lib.mkOption {
+    profiles = lib.mkOption {
       type = lib.types.attrsOf (lib.types.submodule ({config, ...}: {
         options.betterfox = lib.mkOption {
-          description = "Setup betterfox user.js in settings";
-          type = import ./types.nix {
+          description = "Setup betterfox user.js in profile";
+          type = import ./type.nix {
             extracted = ext;
             inherit lib;
           };
@@ -38,7 +38,7 @@ in {
 
   config = lib.mkIf (cfg.enable && cfg.betterfox.enable && !(lib.hasPrefix cfg.betterfox.version version)) {
     warnings = [
-      "Betterfox version ${cfg.betterfox.version} does not match Librewolf's (${version})"
+      "Betterfox version ${cfg.betterfox.version} does not match Firefox's (${version})"
     ];
   };
 }
