@@ -1,6 +1,6 @@
 # Betterfox-nix
 
-This repository provides a Nix Home Manager module that integrates the [Betterfox user.js](https://github.com/yokoffing/Betterfox) configurations into Firefox and LibreWolf.
+This repository provides a Nix Home Manager module that integrates the [Betterfox user.js](https://github.com/yokoffing/Betterfox) configurations into Firefox and LibreWolf, enhancing privacy and performance.
 
 ## Table of contents
 
