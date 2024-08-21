@@ -311,6 +311,11 @@
         },
         {
           "enabled": true,
+          "name": "browser.urlbar.untrimOnUserInteraction.featureGate",
+          "value": true
+        },
+        {
+          "enabled": true,
           "name": "browser.search.separatePrivateDefault.ui.enabled",
           "value": true
         },
@@ -374,11 +379,6 @@
         {
           "enabled": true,
           "name": "dom.security.https_first",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "dom.security.https_first_schemeless",
           "value": true
         }
       ]
@@ -662,11 +662,6 @@
           "enabled": true,
           "name": "network.connectivity-service.enabled",
           "value": false
-        },
-        {
-          "enabled": true,
-          "name": "dom.private-attribution.submission.enabled",
-          "value": false
         }
       ]
     }
@@ -722,11 +717,6 @@
         },
         {
           "enabled": true,
-          "name": "browser.tabs.tabmanager.enabled",
-          "value": false
-        },
-        {
-          "enabled": true,
           "name": "browser.aboutConfig.showWarning",
           "value": false
         },
@@ -734,6 +724,16 @@
           "enabled": true,
           "name": "browser.aboutwelcome.enabled",
           "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.tabs.tabmanager.enabled",
+          "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.profiles.enabled",
+          "value": true
         }
       ]
     },
@@ -776,6 +776,11 @@
           "enabled": true,
           "name": "browser.privateWindowSeparation.enabled",
           "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled",
+          "value": true
         }
       ]
     },
@@ -879,11 +884,6 @@
         "title": "downloads"
       },
       "settings": [
-        {
-          "enabled": true,
-          "name": "browser.download.always_ask_before_handling_new_types",
-          "value": true
-        },
         {
           "enabled": true,
           "name": "browser.download.manager.addToRecentDocs",
