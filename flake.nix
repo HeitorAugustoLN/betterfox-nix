@@ -37,10 +37,8 @@
 
     homeManagerModules.betterfox = import ./modules;
 
-    packages = forAllSystems (pkgs: let
+    packages = forAllSystems (pkgs: rec {
       betterfox-extractor = pkgs.callPackage ./extractor {};
-    in {
-      inherit betterfox-extractor;
       betterfox-generator = pkgs.callPackage ./generator {
         inherit betterfox-extractor;
       };
