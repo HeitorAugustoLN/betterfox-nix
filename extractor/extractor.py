@@ -2,6 +2,7 @@ import json
 import re
 import sys
 
+
 class Extractor:
     def __init__(
         self, section_regex: str, subsection_regex: str, pref_regex: str, pref_file: str

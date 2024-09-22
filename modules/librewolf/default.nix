@@ -1,15 +1,14 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   cfg = config.programs.librewolf;
   version =
-    if (config.programs.librewolf.package != null)
-    then "${config.programs.librewolf.package.version}"
-    else "unknown";
+    if (config.programs.librewolf.package != null) then
+      "${config.programs.librewolf.package.version}"
+    else
+      "unknown";
   ext = (import ../../autogen/librewolf).${cfg.betterfox.version};
-in {
+in
+{
   options.programs.librewolf = {
     betterfox = {
       enable = lib.mkEnableOption "betterfox support in profiles";
@@ -24,7 +23,7 @@ in {
           extracted = ext;
           inherit lib;
         };
-        default = {};
+        default = { };
       };
     };
   };

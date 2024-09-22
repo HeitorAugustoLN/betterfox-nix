@@ -1,8 +1,4 @@
-{
-  writeScriptBin,
-  python3,
-  ...
-}:
+{ writeScriptBin, python3, ... }:
 writeScriptBin "betterfox-extractor" ''
   #!${python3}/bin/python
 
