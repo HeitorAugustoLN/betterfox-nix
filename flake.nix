@@ -29,6 +29,10 @@
       treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
+      checks = forAllSystems (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check inputs.self;
+      });
+
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
