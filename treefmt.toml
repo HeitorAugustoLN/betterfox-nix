@@ -1,0 +1,21 @@
+[global]
+excludes = ["autogen"]
+
+[formatter.nixfmt]
+command = "nixfmt"
+includes = ["*.nix"]
+
+[formatter.ruff-check]
+command = "ruff"
+options = ["check", "--fix"]
+includes = ["*.py", "*.pyi"]
+
+[formatter.ruff-format]
+command = "ruff"
+options = ["format"]
+includes = ["*.py", "*.pyi"]
+
+[formatter.ruff-organize-imports]
+command = "ruff"
+options = ["check", "--select", "I", "--fix"]
+includes = ["*.py", "*.pyi"]

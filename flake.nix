@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -25,17 +21,12 @@
         inputs.nixpkgs.lib.genAttrs supportedSystems (
           system: function inputs.nixpkgs.legacyPackages.${system}
         );
-
-      treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
-      checks = forAllSystems (pkgs: {
-        formatting = treefmtEval.${pkgs.system}.config.build.check inputs.self;
-      });
-
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            nixfmt-rfc-style
             ruff
             (python3.withPackages (
               pyPkgs: with pyPkgs; [
@@ -48,7 +39,7 @@
         };
       });
 
-      formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = forAllSystems (pkgs: pkgs.treefmt);
 
       homeManagerModules.betterfox = import ./modules;
 
