@@ -43,9 +43,15 @@
 
       homeManagerModules.betterfox = import ./modules;
 
-      packages = forAllSystems (pkgs: rec {
-        betterfox-extractor = pkgs.callPackage ./extractor { };
-        betterfox-generator = pkgs.callPackage ./generator { inherit betterfox-extractor; };
-      });
+      packages = forAllSystems (
+        pkgs:
+        let
+          betterfox-extractor = pkgs.callPackage ./extractor { };
+        in
+        {
+          inherit betterfox-extractor;
+          betterfox-generator = pkgs.callPackage ./generator { inherit betterfox-extractor; };
+        }
+      );
     };
 }
