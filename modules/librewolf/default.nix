@@ -15,7 +15,7 @@ in
       version = lib.mkOption {
         description = "The version of betterfox user.js used";
         type = lib.types.enum (builtins.attrNames (import ../../autogen/librewolf));
-        default = "main";
+        default = "128.0";
       };
       settings = lib.mkOption {
         description = "Setup betterfox user.js in settings";
