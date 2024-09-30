@@ -159,17 +159,7 @@
       "settings": [
         {
           "enabled": true,
-          "name": "layout.css.grid-template-masonry-value.enabled",
-          "value": true
-        },
-        {
-          "enabled": true,
           "name": "dom.enable_web_task_scheduling",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "dom.security.sanitizer.enabled",
           "value": true
         }
       ]
@@ -424,11 +414,18 @@
           "enabled": true,
           "name": "pdfjs.enableScripting",
           "value": false
-        },
+        }
+      ]
+    },
+    "extensions": {
+      "meta": {
+        "title": "extensions"
+      },
+      "settings": [
         {
           "enabled": true,
-          "name": "extensions.postDownloadThirdPartyPrompt",
-          "value": false
+          "name": "extensions.enabledScopes",
+          "value": 5
         }
       ]
     },
@@ -452,23 +449,6 @@
         {
           "enabled": true,
           "name": "privacy.userContext.ui.enabled",
-          "value": true
-        }
-      ]
-    },
-    "webrtc": {
-      "meta": {
-        "title": "webrtc"
-      },
-      "settings": [
-        {
-          "enabled": true,
-          "name": "media.peerconnection.ice.proxy_only_if_behind_proxy",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "media.peerconnection.ice.default_address_only",
           "value": true
         }
       ]
@@ -847,6 +827,11 @@
           "enabled": true,
           "name": "browser.urlbar.trending.featureGate",
           "value": false
+        },
+        {
+          "enabled": true,
+          "name": "dom.text_fragments.enabled",
+          "value": true
         }
       ]
     },
@@ -858,6 +843,11 @@
         {
           "enabled": true,
           "name": "browser.newtabpage.activity-stream.feeds.topsites",
+          "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.newtabpage.activity-stream.showWeather",
           "value": false
         },
         {
