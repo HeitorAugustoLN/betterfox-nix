@@ -17,13 +17,17 @@ in
 stdenv.mkDerivation {
   pname = "betterfox-generator";
   version = "1.0";
+
   src = script;
+
   dontUnpack = true;
+
+  nativeBuildInputs = [ makeWrapper ];
   buildInputs = [
     pythonEnv
     betterfox-extractor
-    makeWrapper
   ];
+
   installPhase = ''
     mkdir -p $out/bin
     cp $src/bin/betterfox-generator $out/bin
