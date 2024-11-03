@@ -159,6 +159,11 @@
       "settings": [
         {
           "enabled": true,
+          "name": "layout.css.grid-template-masonry-value.enabled",
+          "value": true
+        },
+        {
+          "enabled": true,
           "name": "dom.enable_web_task_scheduling",
           "value": true
         }
@@ -188,11 +193,6 @@
           "enabled": true,
           "name": "urlclassifier.features.socialtracking.skipURLs",
           "value": "*.instagram.com, *.twitter.com, *.twimg.com"
-        },
-        {
-          "enabled": true,
-          "name": "network.cookie.sameSite.noneRequiresSecure",
-          "value": true
         },
         {
           "enabled": true,
@@ -322,16 +322,6 @@
         {
           "enabled": true,
           "name": "browser.urlbar.quicksuggest.enabled",
-          "value": false
-        },
-        {
-          "enabled": true,
-          "name": "browser.urlbar.suggest.quicksuggest.sponsored",
-          "value": false
-        },
-        {
-          "enabled": true,
-          "name": "browser.urlbar.suggest.quicksuggest.nonsponsored",
           "value": false
         },
         {
@@ -707,11 +697,6 @@
         },
         {
           "enabled": true,
-          "name": "browser.tabs.tabmanager.enabled",
-          "value": false
-        },
-        {
-          "enabled": true,
           "name": "browser.profiles.enabled",
           "value": true
         }
@@ -731,26 +716,6 @@
           "enabled": true,
           "name": "browser.compactmode.show",
           "value": true
-        },
-        {
-          "enabled": true,
-          "name": "browser.display.focus_ring_on_anything",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "browser.display.focus_ring_style",
-          "value": 0
-        },
-        {
-          "enabled": true,
-          "name": "browser.display.focus_ring_width",
-          "value": 0
-        },
-        {
-          "enabled": true,
-          "name": "layout.css.prefers-color-scheme.content-override",
-          "value": 2
         },
         {
           "enabled": true,
@@ -798,11 +763,6 @@
         },
         {
           "enabled": true,
-          "name": "full-screen-api.warning.delay",
-          "value": -1
-        },
-        {
-          "enabled": true,
           "name": "full-screen-api.warning.timeout",
           "value": 0
         }
@@ -827,11 +787,6 @@
           "enabled": true,
           "name": "browser.urlbar.trending.featureGate",
           "value": false
-        },
-        {
-          "enabled": true,
-          "name": "dom.text_fragments.enabled",
-          "value": true
         }
       ]
     },
