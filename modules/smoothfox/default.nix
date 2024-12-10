@@ -39,7 +39,6 @@ in
   };
 
   config = lib.mkIf (cfg'.betterfox.enable) {
-    # TODO: Add assertions for smoothfox
     programs.librewolf.settings = cfg'.betterfox.settings.smoothfox.flatSettings;
   };
 }
