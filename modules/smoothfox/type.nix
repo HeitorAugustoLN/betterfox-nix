@@ -110,13 +110,22 @@ let
     };
   enableSection =
     name: _:
-    { config, ... }:
+    { ... }:
     {
       "${name}".enable = lib.mkDefault false;
     };
 
   type = lib.types.submodule (
     { config, ... }:
+    let
+      sections = builtins.removeAttrs config [
+        "enable"
+        "flatSettings"
+      ];
+      enabledSections = builtins.length (
+        builtins.filter (section: section.enable or false) (builtins.attrValues sections)
+      );
+    in
     {
       options = {
         enable = lib.mkEnableOption "Smoothfox settings";
@@ -127,6 +136,9 @@ let
         };
       } // lib.mapAttrs sectionOption extracted;
       config = {
+        _module.check = lib.mkIf (enabledSections > 1) (
+          throw "Only one section can be enabled at a time, in smoothfox."
+        );
         flatSettings =
           if config.enable then
             builtins.foldl' (x: y: x // y) { } (
