@@ -39,7 +39,13 @@ in
   };
 
   config =
-    lib.mkIf (cfg.enable && cfg.betterfox.enable && !(lib.hasPrefix cfg.betterfox.version version))
+    lib.mkIf
+      (
+        cfg.enable
+        && cfg.betterfox.enable
+        && cfg.betterfox.version != "main"
+        && !(lib.hasPrefix cfg.betterfox.version version)
+      )
       {
         warnings = [ "Betterfox version ${cfg.betterfox.version} does not match Firefox's (${version})" ];
       };
