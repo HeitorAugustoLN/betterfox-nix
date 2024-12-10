@@ -44,8 +44,8 @@
       "settings": [
         {
           "enabled": true,
-          "name": "browser.cache.jsbc_compression_level",
-          "value": 3
+          "name": "browser.cache.disk.enable",
+          "value": true
         }
       ]
     },
@@ -284,6 +284,11 @@
       "settings": [
         {
           "enabled": true,
+          "name": "browser.privatebrowsing.resetPBM.enabled",
+          "value": true
+        },
+        {
+          "enabled": true,
           "name": "privacy.history.custom",
           "value": true
         }
@@ -472,12 +477,12 @@
         },
         {
           "enabled": true,
-          "name": "permissions.manager.defaultsUrl",
-          "value": ""
+          "name": "browser.search.update",
+          "value": false
         },
         {
           "enabled": true,
-          "name": "webchannel.allowObject.urlWhitelist",
+          "name": "permissions.manager.defaultsUrl",
           "value": ""
         }
       ]
@@ -605,11 +610,6 @@
           "enabled": true,
           "name": "browser.tabs.crashReporting.sendReport",
           "value": false
-        },
-        {
-          "enabled": true,
-          "name": "browser.crashReports.unsubmittedCheck.autoSubmit2",
-          "value": false
         }
       ]
     },
@@ -721,11 +721,6 @@
           "enabled": true,
           "name": "browser.privateWindowSeparation.enabled",
           "value": false
-        },
-        {
-          "enabled": true,
-          "name": "browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled",
-          "value": true
         }
       ]
     },
