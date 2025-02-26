@@ -22,11 +22,6 @@
       "settings": [
         {
           "enabled": true,
-          "name": "gfx.canvas.accelerated.cache-items",
-          "value": 4096
-        },
-        {
-          "enabled": true,
           "name": "gfx.canvas.accelerated.cache-size",
           "value": 512
         },
@@ -45,7 +40,7 @@
         {
           "enabled": true,
           "name": "browser.cache.disk.enable",
-          "value": true
+          "value": false
         }
       ]
     },
@@ -160,11 +155,6 @@
         {
           "enabled": true,
           "name": "layout.css.grid-template-masonry-value.enabled",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "dom.enable_web_task_scheduling",
           "value": true
         }
       ]
