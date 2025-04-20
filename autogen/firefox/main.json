@@ -176,16 +176,6 @@
         },
         {
           "enabled": true,
-          "name": "urlclassifier.trackingSkipURLs",
-          "value": "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"
-        },
-        {
-          "enabled": true,
-          "name": "urlclassifier.features.socialtracking.skipURLs",
-          "value": "*.instagram.com, *.twitter.com, *.twimg.com"
-        },
-        {
-          "enabled": true,
           "name": "browser.download.start_downloads_in_tmp_dir",
           "value": true
         },
@@ -215,11 +205,6 @@
           "enabled": true,
           "name": "security.OCSP.enabled",
           "value": 0
-        },
-        {
-          "enabled": true,
-          "name": "security.remote_settings.crlite_filters.enabled",
-          "value": true
         },
         {
           "enabled": true,
@@ -331,29 +316,7 @@
         },
         {
           "enabled": true,
-          "name": "security.insecure_connection_text.enabled",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "security.insecure_connection_text.pbmode.enabled",
-          "value": true
-        },
-        {
-          "enabled": true,
           "name": "network.IDN_show_punycode",
-          "value": true
-        }
-      ]
-    },
-    "https-first-policy": {
-      "meta": {
-        "title": "https-first-policy"
-      },
-      "settings": [
-        {
-          "enabled": true,
-          "name": "dom.security.https_first",
           "value": true
         }
       ]
@@ -464,6 +427,11 @@
           "enabled": true,
           "name": "permissions.default.geo",
           "value": 2
+        },
+        {
+          "enabled": true,
+          "name": "geo.provider.network.url",
+          "value": "https://beacondb.net/v1/geolocate"
         },
         {
           "enabled": true,
@@ -714,23 +682,6 @@
         }
       ]
     },
-    "cookie-banner-handling": {
-      "meta": {
-        "title": "cookie-banner-handling"
-      },
-      "settings": [
-        {
-          "enabled": true,
-          "name": "cookiebanners.service.mode",
-          "value": 1
-        },
-        {
-          "enabled": true,
-          "name": "cookiebanners.service.mode.privateBrowsing",
-          "value": 1
-        }
-      ]
-    },
     "fullscreen-notice": {
       "meta": {
         "title": "fullscreen-notice"
@@ -760,11 +711,6 @@
       "settings": [
         {
           "enabled": true,
-          "name": "browser.urlbar.suggest.calculator",
-          "value": true
-        },
-        {
-          "enabled": true,
           "name": "browser.urlbar.unitConversion.enabled",
           "value": true
         },
@@ -772,6 +718,11 @@
           "enabled": true,
           "name": "browser.urlbar.trending.featureGate",
           "value": false
+        },
+        {
+          "enabled": true,
+          "name": "dom.text_fragments.create_text_fragment.enabled",
+          "value": true
         }
       ]
     },
@@ -782,17 +733,22 @@
       "settings": [
         {
           "enabled": true,
-          "name": "browser.newtabpage.activity-stream.feeds.topsites",
-          "value": false
+          "name": "browser.newtabpage.activity-stream.default.sites",
+          "value": ""
         },
         {
           "enabled": true,
-          "name": "browser.newtabpage.activity-stream.showWeather",
+          "name": "browser.newtabpage.activity-stream.showSponsoredTopSites",
           "value": false
         },
         {
           "enabled": true,
           "name": "browser.newtabpage.activity-stream.feeds.section.topstories",
+          "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.newtabpage.activity-stream.showSponsored",
           "value": false
         }
       ]
