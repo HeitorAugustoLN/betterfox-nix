@@ -44,6 +44,18 @@
         }
       ]
     },
+    "memory-cache": {
+      "meta": {
+        "title": "memory-cache"
+      },
+      "settings": [
+        {
+          "enabled": true,
+          "name": "browser.sessionhistory.max_total_viewers",
+          "value": 4
+        }
+      ]
+    },
     "media-cache": {
       "meta": {
         "title": "media-cache"
@@ -122,6 +134,11 @@
       "settings": [
         {
           "enabled": true,
+          "name": "network.http.speculative-parallel-limit",
+          "value": 0
+        },
+        {
+          "enabled": true,
           "name": "network.dns.disablePrefetch",
           "value": true
         },
@@ -129,6 +146,16 @@
           "enabled": true,
           "name": "network.dns.disablePrefetchFromHTTPS",
           "value": true
+        },
+        {
+          "enabled": true,
+          "name": "browser.urlbar.speculativeConnect.enabled",
+          "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.places.speculativeConnect.enabled",
+          "value": false
         },
         {
           "enabled": true,
@@ -442,6 +469,11 @@
           "enabled": true,
           "name": "permissions.manager.defaultsUrl",
           "value": ""
+        },
+        {
+          "enabled": true,
+          "name": "extensions.getAddons.cache.enabled",
+          "value": false
         }
       ]
     },
@@ -529,6 +561,11 @@
           "enabled": true,
           "name": "browser.newtabpage.activity-stream.telemetry",
           "value": false
+        },
+        {
+          "enabled": true,
+          "name": "datareporting.usage.uploadEnabled",
+          "value": false
         }
       ]
     },
@@ -567,28 +604,6 @@
         {
           "enabled": true,
           "name": "browser.tabs.crashReporting.sendReport",
-          "value": false
-        }
-      ]
-    },
-    "detection": {
-      "meta": {
-        "title": "detection"
-      },
-      "settings": [
-        {
-          "enabled": true,
-          "name": "captivedetect.canonicalURL",
-          "value": ""
-        },
-        {
-          "enabled": true,
-          "name": "network.captive-portal-service.enabled",
-          "value": false
-        },
-        {
-          "enabled": true,
-          "name": "network.connectivity-service.enabled",
           "value": false
         }
       ]
