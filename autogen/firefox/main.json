@@ -166,11 +166,6 @@
           "enabled": true,
           "name": "network.predictor.enabled",
           "value": false
-        },
-        {
-          "enabled": true,
-          "name": "network.predictor.enable-prefetch",
-          "value": false
         }
       ]
     },
@@ -314,11 +309,6 @@
         {
           "enabled": true,
           "name": "browser.search.separatePrivateDefault.ui.enabled",
-          "value": true
-        },
-        {
-          "enabled": true,
-          "name": "browser.urlbar.update2.engineAliasRefresh",
           "value": true
         },
         {
@@ -733,11 +723,6 @@
           "enabled": true,
           "name": "browser.urlbar.trending.featureGate",
           "value": false
-        },
-        {
-          "enabled": true,
-          "name": "dom.text_fragments.create_text_fragment.enabled",
-          "value": true
         }
       ]
     },
