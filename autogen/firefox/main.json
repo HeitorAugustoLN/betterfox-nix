@@ -198,6 +198,16 @@
         },
         {
           "enabled": true,
+          "name": "privacy.trackingprotection.allow_list.baseline.enabled",
+          "value": true
+        },
+        {
+          "enabled": true,
+          "name": "privacy.trackingprotection.allow_list.convenience.enabled",
+          "value": true
+        },
+        {
+          "enabled": true,
           "name": "browser.download.start_downloads_in_tmp_dir",
           "value": true
         },
@@ -232,6 +242,11 @@
           "enabled": true,
           "name": "security.pki.crlite_mode",
           "value": 2
+        },
+        {
+          "enabled": true,
+          "name": "security.csp.reporting.enabled",
+          "value": false
         }
       ]
     },
@@ -687,6 +702,23 @@
         }
       ]
     },
+    "ai": {
+      "meta": {
+        "title": "ai"
+      },
+      "settings": [
+        {
+          "enabled": true,
+          "name": "browser.ml.enable",
+          "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.ml.chat.enabled",
+          "value": false
+        }
+      ]
+    },
     "fullscreen-notice": {
       "meta": {
         "title": "fullscreen-notice"
@@ -714,11 +746,6 @@
         "title": "url-bar"
       },
       "settings": [
-        {
-          "enabled": true,
-          "name": "browser.urlbar.unitConversion.enabled",
-          "value": true
-        },
         {
           "enabled": true,
           "name": "browser.urlbar.trending.featureGate",
@@ -749,6 +776,11 @@
         {
           "enabled": true,
           "name": "browser.newtabpage.activity-stream.showSponsored",
+          "value": false
+        },
+        {
+          "enabled": true,
+          "name": "browser.newtabpage.activity-stream.showSponsoredCheckboxes",
           "value": false
         }
       ]
