@@ -24,7 +24,7 @@ jobs:
           commit-msg: "chore(deps): update flake.lock"
           flakes: |
             .
-            dev
+            dev/
           pr-assignees: HeitorAugustoLN
           pr-labels: dependencies
           pr-reviewers: HeitorAugustoLN
