@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: cron
+      cronjob: '0 0 * * 1' # Runs weekly on monday at 00:00
+    commit-message:
+      prefix: ci
+  - package-ecosystem: cargo
+    directory: "/betterfox-nix"
+    schedule:
+      interval: cron
+      cronjob: '0 0 * * 1'
+    commit-message:
+      prefix: feat

@@ -1,0 +1,33 @@
+name: Check
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    name: Check on ${{ matrix.system }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            system: x86_64-linux
+          - runner: macos-13
+            system: x86_64-darwin
+          - runner: ubuntu-24.04-arm
+            system: aarch64-linux
+          - runner: macos-latest
+            system: aarch64-darwin
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v12
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v19
+      - name: Run flake check
+        run: nix flake check --system ${{ matrix.system }} --accept-flake-config
