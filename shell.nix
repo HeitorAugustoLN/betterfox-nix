@@ -1,6 +1,6 @@
 (import (
   let
-    lock = builtins.fromJSON (builtins.readFile ./modules/flake/_dev/flake.lock);
+    lock = builtins.fromJSON (builtins.readFile ./dev/flake.lock);
     nodeName = lock.nodes.root.inputs.flake-compat;
   in
   fetchTarball {
