@@ -1,0 +1,35 @@
+name: Update plugins
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1' # Runs weekly on monday at 00:00
+
+jobs:
+  generate-prefs:
+    name: Generate preferences files
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v19
+      - name: Generate firefox files
+        run: nix run .#betterfox-nix generate firefox
+      - name: Generate librewolf files
+        run: nix run .#betterfox-nix generate librewolf
+      - name: Generate smoothfox files
+        run: nix run .#betterfox-nix generate smoothfox
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          assignees: HeitorAugustoLN
+          branch: update-plugins
+          commit-message: "feat: update generated prefs"
+          delete-branch: true
+          reviewers: HeitorAugustoLN
+          sign-commits: true
+          title: "feat: update generated prefs"

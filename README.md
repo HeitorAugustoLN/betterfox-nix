@@ -24,37 +24,44 @@ To begin using Betterfox-nix, add the module to your Nix configuration and enabl
 Below is an example of how to integrate Betterfox with both Firefox and LibreWolf using this module:
 
 ```nix
-{inputs, ...}: {
-  imports = [inputs.betterfox.homeManagerModules.betterfox];
+{ inputs, ... }:
+{
+  imports = [ inputs.betterfox.homeManagerModules.betterfox ];
 
   # In firefox
   programs.firefox = {
     enable = true;
+
     betterfox = {
       enable = true;
-      version = "128.0"; # Set version here, defaults to main branch
-    };
-    profiles.example-profile = {
-      betterfox = {
-        enable = true;
+
+      profiles.example-profile = {
         # Set this to enable all sections by default
         enableAllSections = true;
 
-        # To enable/disable specific sections
-        fastfox.enable = true;
+        settings = {
+          # To enable/disable specific sections
+          fastfox.enable = true;
 
-        # To enable/disable specific subsections
-        peskyfox = {
-          enable = true;
-          mozilla-ui.enable = false;
-        };
+          # To enable/disable specific subsections
+          peskyfox = {
+            enable = true;
+            mozilla-ui.enable = false;
+          };
 
-        # To enable/disable specific options
-        securefox = {
-          enable = true;
-          tracking-protection."browser.download.start_downloads_in_tmp_dir".value = false;
+          # To enable/disable specific options
+          securefox = {
+            enable = true;
+            tracking-protection."browser.download.start_downloads_in_tmp_dir".value = false;
+          };
         };
       };
+
+      version = "142.0"; # Set version here, defaults to main branch
+    };
+
+    profiles.example-profile = {
+      name = "Example";
     };
   };
 
@@ -63,11 +70,8 @@ Below is an example of how to integrate Betterfox with both Firefox and LibreWol
     enable = true;
     betterfox = {
       enable = true;
-      version = "128.0";
-      settings = {
-        enable = true;
-        enableAllSections = true;
-      };
+      settings.enableAllSections = true; # Set this to enable all sections by default
+      version = "128.0"; # Set version here, defaults to 128.0 branch
     };
   };
 }
