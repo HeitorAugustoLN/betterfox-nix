@@ -26,7 +26,7 @@ Below is an example of how to integrate Betterfox with both Firefox and LibreWol
 ```nix
 { inputs, ... }:
 {
-  imports = [ inputs.betterfox.homeManagerModules.betterfox ];
+  imports = [ inputs.betterfox.homeModules.betterfox ];
 
   # In firefox
   programs.firefox = {
