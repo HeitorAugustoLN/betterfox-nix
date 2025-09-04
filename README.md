@@ -1,6 +1,6 @@
 # Betterfox-nix
 
-This repository provides a Nix Home Manager module that integrates the [Betterfox user.js](https://github.com/yokoffing/Betterfox) configurations into Firefox and LibreWolf, enhancing privacy and performance.
+This repository provides a Nix Home Manager module that integrates the [Betterfox user.js](https://github.com/yokoffing/Betterfox) configurations into Firefox, enhancing privacy and performance.
 
 ## Table of contents
 
@@ -11,17 +11,17 @@ This repository provides a Nix Home Manager module that integrates the [Betterfo
 
 ## Features
 
-- **Automatic Integration:** Seamlessly apply Betterfox settings to your Firefox and LibreWolf profiles using Nix.
+- **Automatic Integration:** Seamlessly apply Betterfox settings to your Firefox profiles using Nix.
 - **Version Control:** Choose the Betterfox version that suits your needs, including the latest main branch or specific releases.
 - **Cross-platform**: Works on any system supported by Nix and Home Manager.
 
 ## Getting started
 
-To begin using Betterfox-nix, add the module to your Nix configuration and enable it for your preferred browser(s).
+To begin using Betterfox-nix, add the module to your Nix configuration and enable it for your preferred browser.
 
 #### Example Configuration
 
-Below is an example of how to integrate Betterfox with both Firefox and LibreWolf using this module:
+Below is an example of how to integrate Betterfox with Firefox using this module:
 
 ```nix
 { inputs, ... }:
@@ -62,16 +62,6 @@ Below is an example of how to integrate Betterfox with both Firefox and LibreWol
 
     profiles.example-profile = {
       name = "Example";
-    };
-  };
-
-  # In librewolf
-  programs.librewolf = {
-    enable = true;
-    betterfox = {
-      enable = true;
-      settings.enableAllSections = true; # Set this to enable all sections by default
-      version = "128.0"; # Set version here, defaults to 128.0 branch
     };
   };
 }

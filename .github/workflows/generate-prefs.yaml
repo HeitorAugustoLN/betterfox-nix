@@ -19,8 +19,6 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v19
       - name: Generate firefox files
         run: nix run .#betterfox-nix generate firefox
-      - name: Generate librewolf files
-        run: nix run .#betterfox-nix generate librewolf
       - name: Generate smoothfox files
         run: nix run .#betterfox-nix generate smoothfox
       - name: Create pull request

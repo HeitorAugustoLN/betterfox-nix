@@ -18,7 +18,6 @@ pub struct ExtractCommand {
 #[derive(clap::ValueEnum, Clone)]
 pub enum ExtractType {
     Firefox,
-    Librewolf,
     Smoothfox,
 }
 
@@ -167,11 +166,6 @@ impl Command for ExtractCommand {
             .with_context(|| format!("Failed to read file: {}", self.file_path))?;
 
         let (section_regex, subsection_regex, pref_regex) = match self.extract_type {
-            ExtractType::Librewolf => (
-                r"SECTION:\s*(\w+)",
-                r"/\*\*\s*(.+?)\s*\*\*\*/",
-                r#"defaultPref\("([^"]+)",\s*(.*?)\);"#,
-            ),
             ExtractType::Firefox => (
                 r"SECTION:\s*(\w+)",
                 r"/\*\*\s*(.+?)\s*\*\*\*/",
