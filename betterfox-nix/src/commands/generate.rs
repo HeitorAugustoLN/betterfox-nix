@@ -14,7 +14,6 @@ pub struct GenerateCommand {
 #[derive(clap::ValueEnum, Clone, Debug)]
 pub enum GenerateType {
     Firefox,
-    Librewolf,
     Smoothfox,
 }
 
@@ -67,12 +66,6 @@ impl Generator {
                     version
                 )
             }
-            GenerateType::Librewolf => {
-                format!(
-                    "https://raw.githubusercontent.com/yokoffing/Betterfox/{}/librewolf.overrides.cfg",
-                    version
-                )
-            }
             GenerateType::Smoothfox => {
                 format!(
                     "https://raw.githubusercontent.com/yokoffing/Betterfox/{}/Smoothfox.js",
@@ -85,7 +78,6 @@ impl Generator {
     fn type_str(&self) -> &'static str {
         match self.generation_type {
             GenerateType::Firefox => "firefox",
-            GenerateType::Librewolf => "librewolf",
             GenerateType::Smoothfox => "smoothfox",
         }
     }
@@ -110,11 +102,6 @@ impl Generator {
                     .with_context(|| format!("Failed to read content from {}", url))?;
 
                 let (section_regex, subsection_regex, pref_regex) = match self.generation_type {
-                    GenerateType::Librewolf => (
-                        r"SECTION:\s*(\w+)",
-                        r"/\*\*\s*(.+?)\s*\*\*\*/",
-                        r#"defaultPref\("([^"]+)",\s*(.*?)\);"#,
-                    ),
                     GenerateType::Firefox => (
                         r"SECTION:\s*(\w+)",
                         r"/\*\*\s*(.+?)\s*\*\*\*/",
