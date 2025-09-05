@@ -26,7 +26,12 @@ Below is an example of how to integrate Betterfox with Firefox using this module
 ```nix
 { inputs, ... }:
 {
-  imports = [ inputs.betterfox.homeModules.betterfox ];
+  # Choose one of the following import methods
+  imports = [
+    inputs.betterfox.flake.modules.homeManager.betterfox
+    # Or
+    # inputs.betterfox.homeModules.betterfox
+  ];
 
   # In firefox
   programs.firefox = {
