@@ -10,6 +10,6 @@
 
   partitions.dev = {
     extraInputsFlake = ../../dev;
-    module = { inputs, ... }: (inputs.import-tree ../../dev/modules);
+    module = { inputs, ... }: inputs.import-tree ../../dev/modules;
   };
 }
