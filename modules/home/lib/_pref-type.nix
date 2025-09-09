@@ -3,25 +3,23 @@ pref:
 lib.types.submodule (
   { config, ... }:
   {
-    config.flat = lib.optionalAttrs config.enable { ${pref.name} = config.value; };
-
     options = {
-      enable = lib.mkOption {
+      enable = lib.mkEnableOption "${pref.name} preference" // {
         default = pref.enabled;
-        description = "Whether to enable ${pref.name} preference";
-        type = lib.types.bool;
       };
 
       flat = lib.mkOption {
-        readOnly = true;
         type = lib.types.attrsOf lib.types.anything;
+        readOnly = true;
       };
 
       value = lib.mkOption {
-        default = pref.value;
-        description = "Value of ${pref.name} preference";
         type = lib.types.anything;
+        default = pref.value;
+        description = "Value of ${pref.name} preference.";
       };
     };
+
+    config.flat = lib.optionalAttrs config.enable { ${pref.name} = config.value; };
   }
 )
