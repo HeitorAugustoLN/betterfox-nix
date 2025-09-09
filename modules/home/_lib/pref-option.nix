@@ -4,7 +4,7 @@ pref: {
 
   value =
     let
-      prefType = import ./_pref-type.nix { inherit lib; };
+      prefType = import ./pref-type.nix { inherit lib; };
     in
     lib.mkOption {
       type = prefType pref;

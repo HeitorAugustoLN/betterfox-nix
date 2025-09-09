@@ -5,7 +5,7 @@ lib.types.submodule (
   {
     options =
       let
-        prefOption = import ./_pref-option.nix { inherit lib; };
+        prefOption = import ./pref-option.nix { inherit lib; };
       in
       {
         enable = lib.mkEnableOption "preferences for ${name}" // {

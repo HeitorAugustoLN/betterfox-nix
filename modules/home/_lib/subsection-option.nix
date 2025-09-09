@@ -1,7 +1,7 @@
 { lib, ... }:
 name: subsection:
 let
-  subsectionType = import ./_subsection-type.nix { inherit lib; };
+  subsectionType = import ./subsection-type.nix { inherit lib; };
 in
 lib.mkOption {
   type = subsectionType name subsection;

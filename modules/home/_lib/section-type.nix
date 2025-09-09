@@ -8,7 +8,7 @@ lib.types.submodule (
   {
     options =
       let
-        subsectionOption = import ./_subsection-option.nix { inherit lib; };
+        subsectionOption = import ./subsection-option.nix { inherit lib; };
       in
       {
         enable = lib.mkEnableOption "preferences for ${name}";

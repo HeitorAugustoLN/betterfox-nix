@@ -57,7 +57,7 @@
 
                   settings =
                     let
-                      sectionOption = import ./lib/_section-option.nix { inherit lib; };
+                      sectionOption = import ./_lib/section-option.nix { inherit lib; };
                     in
                     builtins.mapAttrs sectionOption data
                     // {
