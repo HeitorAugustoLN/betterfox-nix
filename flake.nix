@@ -1,33 +1,33 @@
 {
-  description = "Home-manager module to integrate Betterfox user.js in Firefox and Librewolf";
+  description = "Home-manager module to integrate Betterfox user.js in Firefox.";
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
     flake-parts = {
-      inputs.nixpkgs-lib.follows = "nixpkgs";
+      type = "github";
       owner = "hercules-ci";
       repo = "flake-parts";
-      type = "github";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     import-tree = {
+      type = "github";
       owner = "vic";
       repo = "import-tree";
-      type = "github";
     };
 
     nixpkgs = {
-      owner = "NixOS";
-      ref = "nixpkgs-unstable";
-      repo = "nixpkgs";
       type = "github";
+      owner = "NixOS";
+      repo = "nixpkgs";
+      ref = "nixpkgs-unstable";
     };
 
     systems = {
+      type = "github";
       owner = "nix-systems";
       repo = "default";
-      type = "github";
     };
   };
-
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }

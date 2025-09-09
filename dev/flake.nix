@@ -1,27 +1,27 @@
 {
   inputs = {
-    dev-nixpkgs = {
-      owner = "NixOS";
-      ref = "nixpkgs-unstable";
-      repo = "nixpkgs";
-      type = "github";
+    betterfox-nix = {
+      type = "path";
+      path = "../.";
     };
 
+    dev-nixpkgs.follows = "betterfox-nix/nixpkgs";
+
     flake-compat = {
+      type = "github";
       owner = "edolstra";
       repo = "flake-compat";
-      type = "github";
     };
 
     git-hooks = {
+      type = "github";
+      owner = "cachix";
+      repo = "git-hooks.nix";
+
       inputs = {
         flake-compat.follows = "flake-compat";
         nixpkgs.follows = "dev-nixpkgs";
       };
-
-      owner = "cachix";
-      repo = "git-hooks.nix";
-      type = "github";
     };
 
     treefmt-nix = {
