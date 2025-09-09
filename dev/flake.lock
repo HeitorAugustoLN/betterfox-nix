@@ -60,7 +60,7 @@
         ],
         "gitignore": "gitignore",
         "nixpkgs": [
-          "dev-nixpkgs"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -132,12 +132,12 @@
     "root": {
       "inputs": {
         "betterfox-nix": "betterfox-nix",
-        "dev-nixpkgs": [
+        "flake-compat": "flake-compat",
+        "git-hooks": "git-hooks",
+        "nixpkgs": [
           "betterfox-nix",
           "nixpkgs"
         ],
-        "flake-compat": "flake-compat",
-        "git-hooks": "git-hooks",
         "treefmt-nix": "treefmt-nix"
       }
     },
@@ -159,7 +159,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "dev-nixpkgs"
+          "nixpkgs"
         ]
       },
       "locked": {
