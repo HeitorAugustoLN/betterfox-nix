@@ -1,5 +1,5 @@
 {
-  description = "home-manager module to integrate Betterfox user.js in Firefox.";
+  description = "Home-manager module to integrate Betterfox user.js in Firefox.";
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
