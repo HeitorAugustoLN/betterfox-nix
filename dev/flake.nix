@@ -5,7 +5,7 @@
       path = "../.";
     };
 
-    dev-nixpkgs.follows = "betterfox-nix/nixpkgs";
+    nixpkgs.follows = "betterfox-nix/nixpkgs";
 
     flake-compat = {
       type = "github";
@@ -20,7 +20,7 @@
 
       inputs = {
         flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "dev-nixpkgs";
+        nixpkgs.follows = "nixpkgs";
       };
     };
 
@@ -28,7 +28,7 @@
       type = "github";
       owner = "numtide";
       repo = "treefmt-nix";
-      inputs.nixpkgs.follows = "dev-nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
