@@ -7,7 +7,7 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "betterfox-nix";
-  version = "2.0.0";
+  version = "3.0.0";
 
   src = lib.fileset.toSource {
     root = ./.;
@@ -34,5 +34,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.mit;
     mainProgram = "betterfox-nix";
     maintainers = [ lib.maintainers.HeitorAugustoLN ];
+    platforms = lib.platforms.unix;
   };
 })
