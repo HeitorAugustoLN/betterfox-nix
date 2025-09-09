@@ -7,8 +7,8 @@ pref: {
       prefType = import ./_pref-type.nix { inherit lib; };
     in
     lib.mkOption {
-      default = { };
-      description = "${pref.name} preference";
       type = prefType pref;
+      default = { };
+      description = "${pref.name} preference.";
     };
 }
