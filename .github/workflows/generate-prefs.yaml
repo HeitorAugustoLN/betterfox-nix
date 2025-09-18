@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v19
+        uses: cachix/install-nix-action@v31
       - name: Generate firefox files
         run: nix run .#betterfox-nix generate firefox
       - name: Generate smoothfox files

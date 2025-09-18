@@ -28,6 +28,6 @@ jobs:
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@v12
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v19
+        uses: cachix/install-nix-action@v31
       - name: Run flake check
         run: nix flake check --system ${{ matrix.system }} --accept-flake-config
