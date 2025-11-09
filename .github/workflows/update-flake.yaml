@@ -1,33 +1,99 @@
-name: Update flake
-
+name: Update flake inputs
+run-name: Update flake inputs by ${{ github.actor }}
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 1' # Runs weekly on monday at 00:00
-
+    - cron: '0 0 * * 1' # Every 3 days at midnight UTC
+  workflow_dispatch:
 jobs:
-  update-flake:
-    name: Update flake
+  update:
+    name: Update ${{ matrix.flake.name != 'root' && format('{0} ', matrix.flake.name) || '' }}flake inputs
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
+    strategy:
+      matrix:
+        flake:
+          - path: .
+            name: root
+          - path: dev/
+            name: dev
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-      - name: Install Nix
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Set up Nix
         uses: cachix/install-nix-action@v31
-      - name: Update flake.lock
-        # DeterminateSystems/update-flake-lock#204
-        uses: DeterminateSystems/update-flake-lock@5e9b1cdf698d74a22436a2088685c5a4b0747db0
+      - name: Update flake inputs
+        id: update
+        run: |
+          nix flake update --flake ${{ matrix.flake.path }} --accept-flake-config --commit-lock-file --option commit-lockfile-summary "chore: update ${{ matrix.flake.name != 'root' && format('{0} ', matrix.flake.name) || '' }}flake inputs"
+      - name: Generate update summary
+        id: summary
+        run: |
+          if ! git log -1 --pretty=%B | grep -q "^chore: update.*flake inputs"; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+          COMMIT_BODY=$(git log -1 --pretty=%B | tail -n +3)
+
+          {
+            echo "body<<EOF"
+            echo "| Input | Diff |"
+            echo "|-------|------|"
+
+            python3 <<'PYTHON'
+          import json
+          import subprocess
+          import os
+
+          flake_path = "${{ matrix.flake.path }}"
+          lock_file = os.path.join(flake_path, "flake.lock") if flake_path != "." else "flake.lock"
+
+          old_lock = json.loads(subprocess.check_output(['git', 'show', f'HEAD~1:{lock_file}']))
+          new_lock = json.loads(subprocess.check_output(['git', 'show', f'HEAD:{lock_file}']))
+
+          for node_name, node_data in new_lock['nodes'].items():
+              if node_name == 'root':
+                  continue
+
+              old_node = old_lock['nodes'].get(node_name, {})
+              old_locked = old_node.get('locked', {})
+              new_locked = node_data.get('locked', {})
+
+              old_rev = old_locked.get('rev')
+              new_rev = new_locked.get('rev')
+
+              if old_rev and new_rev and old_rev != new_rev:
+                  owner = new_locked.get('owner')
+                  repo = new_locked.get('repo')
+
+                  if owner and repo:
+                      link = f"https://github.com/{owner}/{repo}/compare/{old_rev}...{new_rev}"
+                      print(f"| `{node_name}` | [`{old_rev[:7]}...{new_rev[:7]}`]({link}) |")
+          PYTHON
+
+            echo ""
+            echo '```'
+            echo "$COMMIT_BODY"
+            echo '```'
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Create pull request
+        if: steps.summary.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v7
         with:
-          commit-msg: "chore(deps): update flake.lock"
-          flakes: |
-            .
-            dev/
-          pr-assignees: HeitorAugustoLN
-          pr-labels: dependencies
-          pr-reviewers: HeitorAugustoLN
-          pr-title: "chore(deps): update flake.lock"
-          # Wait for DeterminateSystems/update-flake-lock#200
-          # sign-commits: true
+          title: "chore: update ${{ matrix.flake.name != 'root' && format('{0} ', matrix.flake.name) || '' }}flake inputs"
+          body: ${{ steps.summary.outputs.body }}
+          branch: update-flake-inputs${{ matrix.flake.name != 'root' && format('-{0}', matrix.flake.name) || '' }}
+          delete-branch: true
+          labels: dependencies
+          add-paths: ${{ matrix.flake.path }}/flake.lock
+          commit-message: skip
+          sign-commits: true
