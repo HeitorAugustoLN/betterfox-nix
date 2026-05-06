@@ -41,7 +41,8 @@ Below is an example of how to integrate Betterfox with Firefox using this module
 
         settings = {
           # To enable/disable specific sections
-          fastfox.enable = true;
+          # Note that Fasfox has been retired as of v148.0 (https://github.com/yokoffing/Betterfox/releases/tag/148.0)
+          # fastfox.enable = true;
 
           # To enable/disable specific subsections
           peskyfox = {
