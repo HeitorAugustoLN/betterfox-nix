@@ -1,5 +1,6 @@
 {
   "main" = builtins.fromJSON (builtins.readFile ./main.json);
+  "152.0" = builtins.fromJSON (builtins.readFile ./152.0.json);
   "150.0" = builtins.fromJSON (builtins.readFile ./150.0.json);
   "149.0" = builtins.fromJSON (builtins.readFile ./149.0.json);
   "148.0" = builtins.fromJSON (builtins.readFile ./148.0.json);
@@ -28,5 +29,4 @@
   "110.0" = builtins.fromJSON (builtins.readFile ./110.0.json);
   "109.0" = builtins.fromJSON (builtins.readFile ./109.0.json);
   "108.0" = builtins.fromJSON (builtins.readFile ./108.0.json);
-  "107.0" = builtins.fromJSON (builtins.readFile ./107.0.json);
 }
