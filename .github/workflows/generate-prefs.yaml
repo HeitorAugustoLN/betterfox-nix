@@ -22,7 +22,7 @@ jobs:
       - name: Generate smoothfox files
         run: nix run .#betterfox-nix generate smoothfox
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           assignees: HeitorAugustoLN
           branch: update-plugins
